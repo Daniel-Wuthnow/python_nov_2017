@@ -20,9 +20,12 @@
 arr = [19,2,54,-2,7,12,98,32,10,-3,6]
 arr = sorted(arr)
 print arr
+#the second half of the arr
 arr2 = arr[len(arr)/2:]
+#the first half of the arr
 arr3 = arr[:len(arr)/2]
 print arr2
 print arr3
+#in arr2 this function inserts arr3 into index 0 sliding over the other index
 arr2.insert(0,arr3)
 print arr2
