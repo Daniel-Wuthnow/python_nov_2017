@@ -14,9 +14,6 @@ def welcome():
 #adds 1 from the refresh and one from the button
 @app.route('/addtwo', methods=['POST'])
 def addtwo():
-	if 'counter' not in session :
-		session['counter']=0
-	else:
 		session['counter']+=1
 	return redirect('/')
 
