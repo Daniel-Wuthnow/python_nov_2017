@@ -9,10 +9,10 @@
 			<h4>Submitted info</h4>
 		</div>
 		<div>
-			{{ name }}
-			{{ location }}
-			{{ language }}
-			{{ comment }}
+			<div>Name:{{ session['name'] }}</div>
+			<div>Dojo Location: {{ location }}</div>
+			<div>Favorite Language: {{ language }}</div>
+			<div>Comment: {{ session['comment'] }}</div>
 		</div>
 		<button>Button</button>
 	</div>

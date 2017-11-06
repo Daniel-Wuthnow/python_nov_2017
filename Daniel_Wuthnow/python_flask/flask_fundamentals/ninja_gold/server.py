@@ -6,7 +6,7 @@ import random
 @app.route('/')
 def home():
 	if 'activities' not in session:
-		session['activities'] = ''
+		session['activities'] = []
 	if "gold" not in session:
 		session["gold"] = 0
 
