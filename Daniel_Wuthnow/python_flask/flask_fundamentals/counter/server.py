@@ -5,7 +5,7 @@ app.secret_key = 'ThisIsSecret'
 #adds one on refresh
 @app.route('/')
 def welcome():
-	if 'counter' not in session :
+	if 'counter' not in session:
 		session['counter']=0
 	else:
 		session['counter']+=1
@@ -14,6 +14,9 @@ def welcome():
 #adds 1 from the refresh and one from the button
 @app.route('/addtwo', methods=['POST'])
 def addtwo():
+	if 'counter' not in session :
+		session['counter']=0
+	else:
 		session['counter']+=1
 	return redirect('/')
 

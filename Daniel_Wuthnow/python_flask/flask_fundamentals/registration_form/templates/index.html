@@ -17,7 +17,7 @@
 		</div>
 		<div>
 			First Name: <input type="text" name="first_name">
-			{% with messages = get_flashed_messages(category_filter=["first"]) %}
+				{% with messages = get_flashed_messages(category_filter=["first"]) %}
 					{% if messages %}
 						{% for message in messages %}
 							{{message}}
@@ -27,7 +27,7 @@
 		</div>
 		<div>
 			Last Name: <input type="text" name="last_name">
-			{% with messages = get_flashed_messages(category_filter=["last"]) %}
+				{% with messages = get_flashed_messages(category_filter=["last"]) %}
 					{% if messages %}
 						{% for message in messages %}
 							{{message}}
@@ -37,7 +37,7 @@
 		</div>
 		<div>
 			Password: <input type="password" name="password">
-			{% with messages = get_flashed_messages(category_filter=["password"]) %}
+				{% with messages = get_flashed_messages(category_filter=["password"]) %}
 					{% if messages %}
 						{% for message in messages %}
 							{{message}}
@@ -47,7 +47,7 @@
 		</div>
 		<div>
 			Comfirm Password: <input type="password" name="password_comp">
-			{% with messages = get_flashed_messages(category_filter=["password_comp"]) %}
+				{% with messages = get_flashed_messages(category_filter=["password_comp"]) %}
 					{% if messages %}
 						{% for message in messages %}
 							{{message}}

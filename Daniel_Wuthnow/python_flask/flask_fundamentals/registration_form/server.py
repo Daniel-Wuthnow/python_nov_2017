@@ -31,7 +31,7 @@ def submit():
 	elif len(request.form['password']) < 8:
 		flash("password is not long enough", "password")
 
-	if request.form['password_comp'] == request.form['password']:
+	if request.form['password_comp'] != request.form['password']:
 		flash("password dose not match", "password_comp")
 	return redirect('/')
 
