@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Wall</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static' ,filename='style.css')}}">
+</head>
+<body>
+	<div id="header">
+		<h3>CodingDojo Wall</h3>
+		<h4>Welcome {{session['first_name']}}</h4>
+		<form action="/logout" method="post">
+			<button  name="log_off" >Log off</button>
+		</form>
+	</div>
+	<form action="/message" method="post">
+		Post a message: <input type="text" name="message">
+		<input type="submit" name="submit">
+	</form>
+	{% for i in range(0, messages|length): %}
+		{% if(i == 0) or messages[i]['message_id'] != messages[i-1]['message_id'] %}
+			<h4>{{ messages[i]['name'] }} - {{ messages[i]['message_date']}}</h4>
+			<p>{{ messages[i]['message'] }}</p>
+		{% endif %}
+		{% if (messages[i]['comment'] != None) %}
+			<p>{{ messages[i]['comment'] }}</p>
+		{% endif %}
+		{% if(i+1 == messages|length) or messages[i]['message_id'] != messages[i+1]['message_id'] %}
+
+			<form action="/comment" method="post">
+				Post a comment: <input type="text" name="comment">
+				<input type="hidden" name="post_id" value="{{ messages[i]['message_id'] }}">
+				<input type="submit" name="submit">
+			</form>
+		{% endif %}
+	{% endfor %}
+
+</body>
+</html>
