@@ -3,7 +3,7 @@
 <head>
 	<title>Session Words</title>
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'first_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+	<link rel="stylesheet" href="{% static 'first_app/style.css' %}" media="screen" title="no title"  charset="utf-8">
 </head>
 <body>
 	<div>
@@ -11,11 +11,11 @@
 		<form action="/session_words" method="post">
 			{% csrf_token %}
 			<input type="text" name="word">
-			Choose color
-			<input type="radio" name="color" value="Red">Red
-			<input type="radio" name="color" value="Green">Green
-			<input type="radio" name="color" value="Blue">Blue
-			<input type="checkbox" name="big" value="big">Show in BIG fonts!
+			Choose color<br>
+			<input type="radio" name="color" value="Red">Red<br>
+			<input type="radio" name="color" value="Green">Green<br>
+			<input type="radio" name="color" value="Blue">Blue<br>
+			<input type="checkbox" name="big" value="Big">Show in BIG fonts!<br>
 			<input type="submit" name="submit" value="Add to Session">
 		</form>
 	</div>
@@ -24,8 +24,8 @@
 			{% csrf_token %}
 			<input type="submit" name="clear" value="Clear Session">
 		</form>
-		{% for i in range(0,3): %}
-			print 'test'
+		{% for word in request.session.word %}
+			<span class="{{word.class1}} {{word.class2}}">{{word.word}}</span> - added on {{word.time}}<br>
 		{% endfor %}
 	</div>
 		

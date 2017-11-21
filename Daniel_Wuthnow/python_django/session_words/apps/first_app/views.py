@@ -6,6 +6,8 @@ from time import gmtime, strftime
 
 # Create your views here.
 def index(request):
+	if request.session.get('word') == None:
+		request.session['word']=[]
 	return render(request, 'first_app/index.html')
 
 
@@ -22,9 +24,9 @@ def word(request):
 		"word" : request.POST.get('word'),
 		"class1" : request.POST.get('color'),
 		"class2" : class2,
-		"time" : time,
+		"time" : time
 	}	
-
+	temp = request.session['word']
 	temp.append(adding_words)
 	request.session['word'] = temp
 	print temp
