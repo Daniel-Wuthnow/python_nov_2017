@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Session Words</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'first_app/css/style.css' %}" media="screen" title="no title"  charset="utf-8">
+</head>
+<body>
+	<div>
+		<h4>Add a new word</h4>
+		<form action="/session_words" method="post">
+			{% csrf_token %}
+			<input type="text" name="word">
+			Choose color
+			<input type="radio" name="color" value="Red">Red
+			<input type="radio" name="color" value="Green">Green
+			<input type="radio" name="color" value="Blue">Blue
+			<input type="checkbox" name="big" value="big">Show in BIG fonts!
+			<input type="submit" name="submit" value="Add to Session">
+		</form>
+	</div>
+	<div>		
+		<form action="/clear" method="post">
+			{% csrf_token %}
+			<input type="submit" name="clear" value="Clear Session">
+		</form>
+		{% for i in range(0,3): %}
+			print 'test'
+		{% endfor %}
+	</div>
+		
+</body>
+</html>
