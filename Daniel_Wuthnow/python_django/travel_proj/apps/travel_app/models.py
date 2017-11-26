@@ -1,10 +1,10 @@
 from __future__ import unicode_literals
-from IPython import embed
+# from IPython import embed
 from django.db import models
 import re
 import bcrypt
 import datetime
-from dateutil.parser import parse as parse_date
+# from dateutil.parser import parse as parse_date
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
