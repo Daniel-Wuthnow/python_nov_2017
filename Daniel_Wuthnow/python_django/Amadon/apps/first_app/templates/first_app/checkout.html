@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h2>Thank You for your Business!</h2>
+	<p>We charged your credit card for ${{request.session.total}}</p>
+	<p>You have bought {{request.session.amount}} items</p>
+	<p>And you have spent ${{request.session.sum}}</p>
+	<a href="/back">Go back</a>
+	<a href="/clear">Clear history</a>
+</body>
+</html>

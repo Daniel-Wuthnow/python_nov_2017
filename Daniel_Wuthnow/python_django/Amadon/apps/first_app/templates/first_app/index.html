@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amadon</title>
+</head>
+<body>
+	<h3>Amadon Store!</h3>
+	<table>
+		
+		<tr>
+			<th>Item</th>
+			<th>Price</th>
+			<th>Actions</th>
+		</tr>
+		<tr>
+			<td>{{ shirts.name }}</td>
+			<td>${{ shirts.price }}</td>
+			<td>
+				<form action="/add" method="post">
+					{% csrf_token %}
+					<input type="hidden" name="action" value="{{ shirts.price }}">
+					<select name="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<button type="submit">Buy</button>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ sweater.name }}</td>
+			<td>${{ sweater.price }}</td>
+			<td>
+				<form action="/add" method="post">
+					{% csrf_token %}
+					<input type="hidden" name="action" value="{{ sweater.price }}">
+					<select name="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<button type="submit">Buy</button>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ cup.name }}</td>
+			<td>${{ cup.price }}</td>
+			<td>
+				<form action="/add" method="post">
+					{% csrf_token %}
+					<input type="hidden" name="action" value="{{ cup.price }}">
+					<select name="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<button type="submit">Buy</button>
+				</form>
+			</td>
+		</tr>
+		<tr>
+			<td>{{ book.name }}</td>
+			<td>${{ book.price }}</td>
+			<td>
+				<form action="/add" method="post">
+					{% csrf_token %}
+					<input type="hidden" name="action" value="{{ book.price }}">
+					<select name="quantity">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<button type="submit">Buy</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
