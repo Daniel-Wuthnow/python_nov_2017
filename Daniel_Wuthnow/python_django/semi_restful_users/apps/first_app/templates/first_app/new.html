@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>new</title>
+</head>
+<body>
+	<h2>Add a new user</h2>
+	<form action="/users/create" method="post">
+		{% csrf_token %}
+		First Name:<input type="text" name="first_name">
+		Last Name:<input type="text" name="last_name">
+		Email:<input type="text" name="email">
+		<input type="submit" name="submit" value="Create">
+	</form>
+	<a href="/users">Go Back</a>
+</body>
+</html>

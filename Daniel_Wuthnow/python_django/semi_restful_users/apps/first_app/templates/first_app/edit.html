@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>edit</title>
+</head>
+<body>
+	<h1>Edit User {{id}}</h1>
+	<form action="/users/{{id}}/update" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="test" value="test">
+		First Name:<input type="text" name="first_name">
+		Last Name:<input type="text" name="last_name">
+		Email:<input type="text" name="email">
+		<input type="submit" name="submit">
+	</form>
+	<a href="/users/{{id}}">Show</a>
+	<a href="/users">Go Back</a>
+</body>
+</html>
