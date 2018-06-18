@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit</title>
+</head>
+<body>
+	<h1>Update This info</h1>
+	<h3>Current Name: {{user.name}}</h3><br>
+	<h3>Current Email: {{user.email}}</h3><br>
+	<h3>Current Age: {{user.age}}</h3><br>
+	<h3>Current Image: </h3>
+	<img src="/static/first_app/{{user.picture}}"><br>
+	<form enctype="multipart/form-data" action="/update/{{user.id}}" method="post">
+		{% csrf_token %}
+		New Name:<input type="text" name="name" value="{{user.name}}">
+		New email:<input type="text" name="email" value="{{user.email}}">
+		New age:<input type="text" name="age" value="{{user.age}}">
+		New Image:<input type="file" name="picture" accept=".jpg, .jpeg, .png" multiple>
+		<input type="submit" name="submit">
+	</form>
+	<a href="/success/{{user.id}}">Go back</a>
+</body>
+</html>

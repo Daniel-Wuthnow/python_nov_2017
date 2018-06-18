@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Main</title>
+</head>
+<body>
+	{% for error in errors %}
+		{{error}}
+		<br>
+	{% endfor %}
+	<h3>Welcome!</h3>
+	<form action="/register" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="action" value="reg">
+		Name:<input type="text" name="name">
+		<br>
+		Alias:<input type="text" name="alias">
+		<br>
+		Email:<input type="text" name="email">
+		<br>
+		Password:<input type="password" name="password">
+		<br>
+		Confirm Password:<input type="password" name="confirm_password">
+		<br>
+		Date of Birth:<input type="date" name="date">
+		<input type="submit" name="submit">
+	</form>
+	<form action="/login" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="action" value="log">
+		Email:<input type="text" name="email">
+		<br>
+		Password:<input type="password" name="password">
+		<br>
+		<input type="submit" name="submit">
+	</form>
+</body>
+</html>

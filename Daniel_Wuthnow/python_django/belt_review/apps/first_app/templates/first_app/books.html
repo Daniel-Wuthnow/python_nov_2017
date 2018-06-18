@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome {{current_user.name}}</h1>
+	<a href="/books/add">Add Book and Review</a>
+	<a href="/logout">Logout</a>
+	<h3>Recent Book Review</h3>
+	{% for review in recent_review %}
+		<h4><a href="">{{review.book.title}}</a></h4>
+		<p>Rating: {{review.ratting}}</p>
+		<p><a href="">{{review.uploader.name}}</a> says: {{review.content}}</p>
+		<p>{{review.created_at}}</p>
+	{% endfor %}
+	{% for review in review %}
+		<a href="">{{review.book.title}}</a><br>
+	{% endfor %}
+</body>
+</html>

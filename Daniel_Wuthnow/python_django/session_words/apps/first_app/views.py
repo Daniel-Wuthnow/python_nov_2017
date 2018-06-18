@@ -25,12 +25,9 @@ def word(request):
 		"class1" : request.POST.get('color'),
 		"class2" : class2,
 		"time" : time
-	}	
-	temp = request.session['word']
-	temp.append(adding_words)
+	}
 	request.session['word'] = temp
-	print temp
-	print len(temp)
+	temp.append(adding_words)
 	return redirect('/')
 
 def clear(request):

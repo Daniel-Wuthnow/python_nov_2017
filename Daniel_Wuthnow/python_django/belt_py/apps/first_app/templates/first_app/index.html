@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>WishList</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			height: 100%;
+			background-color: #bbffb5;
+		}
+	</style>
 </head>
 <body>
-	<div>
-		<h1>Login or Register</h1>
+	<div class="container" style="padding: 20px">
+		<h1>WishList</h1>
 		{% for error in errors %}
 			{{error}}
 		{% endfor %}
-		<h2>Register</h2>
-		<form action="/register" method="post">
-			{% csrf_token %}
-			<input type="hidden" name="action" value="register">
-			Name:<input type="text" name="name">
-			Username:<input type="text" name="username">
-			Password:<input type="password" name="password">
-			Confirm Password:<input type="password" name="con_password">
-			Date hired:<input type="date" name="date">
-			<input type="submit" name="submit" value="Register">
-		</form>
-		<h2>Login</h2>
-		<form action="/login" method="post">
-			<input type="hidden" name="action" value="login">
-			{% csrf_token %}
-			Username:<input type="text" name="username">
-			Password:<input type="password" name="password">
-			<input type="submit" name="submit" value="Login">
-		</form>
+		<div class="row">
+			<div class="col">
+			<h2>Register</h2>
+				<form action="/register" method="post">
+					{% csrf_token %}
+						<input type="hidden" name="action" value="register">
+					<div class="form-group row">
+						<label class="col-sm-3" for="inputName">Name:</label>
+						<input class="form-control col-sm-8" type="text" name="name" id="inputName">
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-3" for="inputUsername">Username:</label>
+						<input class="form-control col-sm-8" type="text" name="username" id="inputUsername">
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-3" for="inputEmail">Email:</label>
+						<input class="form-control col-sm-8" type="text" name="email" id="inputEmail">
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-3" for="inputPassword">Password:</label>
+						<input class="form-control col-sm-8" type="password" name="password" id="inputPassword">
+					</div>
+					<div class="form-group row">
+						<label class="col-sm-3" for="inputConfirmPassword">Confirm Password:</label>
+						<input class="form-control col-sm-8" type="password" name="con_password" id="inputConfirmPassword">
+					</div>
+						<button type="submit" class="btn">Register</button>
+				</form>
+			</div>
+			<div class="col">
+			<h2>Login</h2>
+			<form action="/login" method="post">
+				<input type="hidden" name="action" value="login">
+				{% csrf_token %}
+				<div class="form-group row">
+					<label class="col-sm-3" for="loginName">Username:</label>
+					<input class="form-control col-sm-8" type="text" name="username" id="loginName">
+				</div>
+				<div class="form-group row">
+					<label class="col-sm-3" for="loginPassword">Password:</label>
+					<input class="form-control col-sm-8" type="password" name="password" id="loginPassword">
+				</div>
+					<button type="submit" class="btn">Login</button>
+				</div>
+			</form>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 
 from .models import User, Product
@@ -38,7 +40,16 @@ def register(request):
 		if len(errors) != 0:
 			request.session['errors'] = errors
 			return redirect('/')
+
 		user = User.objects.register(request.POST)
+		## Will work to send email confirmation
+		##
+		#send_mail(subject, message, from_email, to_list, fail_silently=True)
+		# subject = "Thank you for joining the wish list"
+		# message = 'Welcome to Wish List. We are glad to have you aboard. /n We will be in touch soon.'
+		# from_email = settings.EMAIL_HOST_USER
+		# to_list = [request.POST.email, settings.EMAIL_HOST_USER]
+		# send_mail(subject, message, to_list, fail_silently=True)
 		request.session['user_id'] = user.id
 		return redirect('/home')
 

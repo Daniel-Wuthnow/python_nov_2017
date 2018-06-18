@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1>Welcome!</h1>
+	<h3>Register</h3>
+	<form action="/register" method="post">
+		{% csrf_token %}
+		Name: <input type="text" name="name">
+		Alias: <input type="text" name="alias">
+		Email: <input type="text" name="email">
+		Password: <input type="password" name="password">
+		Confirm Password: <input type="password" name="comf_password">
+		<input type="submit" name="submit" value="Register">
+	</form>
+</body>
+</html>

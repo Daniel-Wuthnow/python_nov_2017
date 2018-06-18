@@ -13,7 +13,7 @@ class UserManager(models.Manager):
 			name=postData['name'],
 			username=postData['username'],
 			password=hashed_pw,
-			hired=postData['date']
+			email=postData['email']
 		)
 		return user
 
@@ -26,6 +26,9 @@ class UserManager(models.Manager):
 		duplicate = User.objects.filter(username = postData['username'])
 		if len(duplicate) == 1:
 			errors.append('username taken.')
+		email = User.objects.filter(email = postData['email'])
+		if len(email) == 1:
+			errors.append("email taken")
 		if len(postData['password']) < 8:
 			errors.append('Password must be atleast 8 charactores.')
 		if postData['password'] != postData['con_password']:
@@ -54,13 +57,13 @@ class User(models.Model):
 	name = models.CharField(max_length=40)
 	username = models.CharField(max_length=40)
 	password = models.CharField(max_length=40)
-	hired = models.DateTimeField()
+	email = models.EmailField()
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
 	objects = UserManager()
 
 	def __unicode__(self):
-		return "name: {}, id: {}".format(self.name, self.id)
+		return "name: {}, email: {}, id: {}".format(self.name, self.email, self.id)
 
 
 class ProductManager(models.Manager):

@@ -17,6 +17,7 @@ def generate(request):
 	contex = {
 		"word" : new_word
 	}
+	print new_word
 	return render(request, 'ran_word/index.html', contex)
 
 def clear(request):

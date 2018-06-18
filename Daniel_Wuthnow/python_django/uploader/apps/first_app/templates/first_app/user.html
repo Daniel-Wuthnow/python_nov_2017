@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>user</title>
+</head>
+<body>
+
+	<!-- what the src needs to be 
+	/static/first_app/images/unnamed.jpg -->
+	<img src="/static/first_app/{{user.picture}}" alt="#"><br>
+	<p>{{user.name}}</p><br>
+	<p>{{user.email}}</p><br>
+	<p>{{user.age}}</p><br>
+	<a href="/success">See all users</a><br>
+	<a href="/">Add a user</a><br>
+	<a href="/edit/{{user.id}}">Edit user info</a><br>
+	<a href="/destroy/{{user.id}}">Remove user</a>
+</body>
+</html>

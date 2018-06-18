@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Uploader</title>
+</head>
+<body>
+	<h1>add a user</h1>
+	<form enctype="multipart/form-data" action="/create_user" method="post">
+		{% csrf_token %}
+		Name:<input type="text" name="name"><br>
+		Email:<input type="text" name="email"><br>
+		Age:<input type="text" name="age"><br>
+		Picture:<input type="file" name="picture"><br>
+		<input type="submit" name="submit"><br>
+	</form>
+	<a href="/success">See all users</a>
+</body>
+</html>

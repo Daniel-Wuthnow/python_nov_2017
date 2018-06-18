@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<a href="/books">Home</a>
+	<a href="/logout">Logout</a>
+	<h3>{{book.title}}</h3>
+	<h4>Author: {{book.author.name}}</h4>
+	<h3>Reviews:</h3>
+	{% for review in review %}
+		<p>Rating: {{review.ratting}}</p>
+		<p>{{review.uploader.name}} says: {{review.content}}</p>
+		<p>{{review.created_at}}</p>
+	{% endfor %}
+	<h4>Add a review</h4>
+
+	find way to pass through the book and the author dynamicly
+	<form action="/add_extra" method="post">
+		{% csrf_token %}
+		<input type="text" name="content">
+		<select name="rate">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+		</select>
+	<input type="submit" name="submit" value="Submit Review">
+	</form>
+</body>
+</html>
