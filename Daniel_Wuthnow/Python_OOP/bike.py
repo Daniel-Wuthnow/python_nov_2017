@@ -26,4 +26,4 @@ bike3 = bike(250, 17)
 
 # bike1.ride().ride().ride().reverse().displayinfo()
 # bike2.ride().ride().reverse().reverse().displayinfo()
-bike3.reverse().reverse().reverse().displayinfo()
+bike3.reverse().ride().reverse().displayinfo()
